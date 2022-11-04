@@ -1,0 +1,128 @@
+.navbar{
+    --bs-navbar-color: red;
+    --bs-bg-opacity: 1;
+    padding-inline: $defaultPadding;
+    background: $bgGradient;    
+    &-dark {
+        --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='red' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+    }
+    &-collapse {
+        flex-grow: 0;
+    }
+    i {
+        font-size: 19px;
+    }
+    label {
+        content: url(../img/button/sun.png);
+        @extend %labelMode;
+    } 
+    @include breakpoint-lg {
+        padding-block: 14px 12px;
+        line-height: 1;            
+    }   
+}
+
+main {
+    margin-top:56px;
+}
+
+#subscribe {
+    background: url(../img/pexels-aleksandar-pasaric-325185.jpg) 0% 35%;
+    height: 545px;
+    padding-inline: $defaultPadding;
+    p {
+        @extend %weighted;
+    }    
+}
+
+.btn {    
+    border:0;
+    border-radius: 4px;
+    @extend %themeDefault;
+}
+
+#skills {
+    @extend #effect;
+    i {
+        font-size: 2.5rem;
+    }
+    p {
+        @extend %weighted;
+    }
+}
+
+*[class^="display-"] { 
+    @extend %weighted;
+} 
+
+#partners {    
+    img {
+    width: 110px;
+    margin:auto;
+    padding-block: 40px 10px;
+    } 
+}
+
+#effect {
+    background-color: $bgEffect; 
+}
+
+#opinions {    
+    i {
+        font-size: 2rem;
+        color: #fd2751;
+    }    
+    .carousel-inner {
+        width:65%;
+        margin: auto;
+    }
+    blockquote {
+        margin-block: 48px 26px;
+    }
+    img {
+        width: 80px;
+    }
+}
+
+footer {
+    @extend %themeDefault;
+}
+
+#darkMode {
+    &:checked + header .navbar {
+        @extend %darkLayout;
+        label {
+            content: url(../img/button/Moon.svg);
+        }
+        &-dark {
+            --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='green' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+        }        
+    }
+    &:checked ~ main {
+        background-color: $bgDark2;
+        #subscribe {
+            background: linear-gradient($bgDark2, #00000030), url(../img/pexels-aleksandar-pasaric-325185.jpg) 0% 35%;
+        }
+        *[class^="display-"] { 
+            color:setColor($bgDark);
+        }
+        path:nth-of-type(1) {
+            fill: $bgDark;
+        }        
+        #effect {
+            @extend %sectionDark;
+            path {
+                fill: $bgDark2;
+            }
+        } 
+        #skills {
+            @extend %sectionDark;
+        }
+        .btn {
+            @extend %darkMode;
+        }        
+    }
+    &:checked ~ footer {
+        @extend %darkMode;
+    }
+}

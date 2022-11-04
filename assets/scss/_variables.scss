@@ -1,0 +1,42 @@
+$bgGradient: linear-gradient(#7c33f4, $indigo);
+$dark-bgGradient: linear-gradient($orange-400, $orange);
+$defaultPadding: 18px;
+$bgEffect: #f5f5f5;
+$bgDark: #111;
+$bgDark2: #888;
+
+%weighted {
+    font-weight: 350;
+}
+
+%themeDefault {
+    background: $bgGradient;
+    color:setColor($indigo);
+    text-shadow: 2px 2px 2px #00000020;
+}
+
+%darkMode {
+    background: $dark-bgGradient;
+    color:setColor($orange);
+}
+
+%darkLayout {
+    background: $dark-bgGradient;
+    --bs-navbar-brand-color: black;
+    --bs-navbar-active-color: black;
+    --bs-navbar-color: green;
+    font-weight: 500;    
+}
+
+%labelMode {
+    width: 35px;
+    position: absolute;
+    left: 50%;
+    top: 10.5px;
+    @include transform(translateX(-50%));    
+}
+
+%sectionDark {
+    background-color: $bgDark;
+    color:setColor($bgDark);
+}

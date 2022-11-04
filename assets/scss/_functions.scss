@@ -1,0 +1,8 @@
+@function setColor($bg) {
+    @if(lightness($bg) > 51) {
+        @return black;
+    }
+    @else {
+        @return white;
+    }
+}
